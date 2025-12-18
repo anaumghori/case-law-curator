@@ -15,6 +15,25 @@ class PostgreSQLSettings(BaseSettings):
         env_prefix = "POSTGRES_"
 
 
+class CreateRecord(BaseModel):
+    """Schema for creating an opinion record in the database."""
+    opinion_id: int = Field(..., description="CourtListener opinion ID")
+    cluster_id: int = Field(..., description="CourtListener cluster ID")
+    case_name: str = Field(..., description="Name of the case")
+    plain_text: str = Field(..., description="Plain text content")
+    opinion_type: str = Field(..., description="Type of opinion")
+    citations: List[str] = Field(default_factory=list, description="Case citations")
+    date_filed: Optional[datetime] = Field(None, description="Filing date")
+    date_filed_is_approximate: bool = Field(False, description="Whether date is approximate")
+    precedential_status: str = Field(..., description="Precedential status")
+    citation_count: int = Field(0, description="Number of citations")
+    court_id: str = Field(..., description="Court identifier")
+    docket_number: str = Field(..., description="Docket number")
+    nature_of_suit: str = Field("", description="Nature of suit")
+    structured_text: Optional[str] = Field(None, description="Cleaned structured text")
+    sections: Optional[List[Dict[str, Any]]] = Field(None, description="Parsed sections")
+
+
 class ChunkMetadata(BaseModel):
     """Metadata for a text chunk."""
     chunk_index: int = Field(..., description="Zero-based index of the chunk")

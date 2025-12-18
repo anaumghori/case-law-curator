@@ -5,7 +5,7 @@ from sqlalchemy.dialects.postgresql import UUID
 from src.database.postgresql import Base
 
 
-class CaseLawOpinion(Base):
+class OpinionsTable(Base):
     """Opinions record with metadata"""
     __tablename__ = "case_law_opinions"
 
