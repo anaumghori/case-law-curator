@@ -5,4 +5,15 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "alembic>=1.17.2",
+    "fastapi[standard]>=0.124.2",
+    "httpx>=0.28.1",
+    "langfuse>=3.10.5",
+    "opensearch-py>=3.1.0",
+    "psycopg2-binary>=2.9.11",
+    "pydantic>=2.12.5",
+    "python-dateutil>=2.9.0.post0",
+    "requests>=2.32.5",
+    "sqlalchemy>=2.0.45",
+    "uvicorn>=0.38.0",
 ]
